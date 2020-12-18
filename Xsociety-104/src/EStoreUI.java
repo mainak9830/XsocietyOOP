@@ -77,7 +77,7 @@ public class EStoreUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         nameTF = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        searchBtn = new javax.swing.JButton();
         msgTF = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
@@ -187,12 +187,12 @@ public class EStoreUI extends javax.swing.JFrame {
 
         nameTF.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
 
-        jButton3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
-        jButton3.setText("SEARCH");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        searchBtn.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        searchBtn.setText("SEARCH");
+        searchBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        searchBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                searchBtnMouseClicked(evt);
             }
         });
 
@@ -224,7 +224,7 @@ public class EStoreUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2)
                         .addComponent(nameTF)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboBox1, 0, 357, Short.MAX_VALUE)
                         .addComponent(msgTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -250,7 +250,7 @@ public class EStoreUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(msgTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
@@ -346,7 +346,7 @@ public class EStoreUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void searchBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnMouseClicked
         // TODO add your handling code here:
         if(nameTF.getText().equals("")){
             msgTF.setText("Name Field empty!");
@@ -357,7 +357,7 @@ public class EStoreUI extends javax.swing.JFrame {
         else{
             msgTF.setText("Deal successful. Details will be emailed.");
         }
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_searchBtnMouseClicked
 
     private void SellBookBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SellBookBtnMouseClicked
         // TODO add your handling code here:
@@ -418,7 +418,6 @@ public class EStoreUI extends javax.swing.JFrame {
     private javax.swing.JButton SellBookBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -431,5 +430,6 @@ public class EStoreUI extends javax.swing.JFrame {
     private javax.swing.JLabel msgTF;
     private javax.swing.JTextField nameTF;
     private javax.swing.JPanel options;
+    private javax.swing.JButton searchBtn;
     // End of variables declaration//GEN-END:variables
 }
