@@ -19,6 +19,8 @@ public class DashboardUI extends javax.swing.JFrame {
      */
     public DashboardUI() {
         initComponents();
+        this.setTitle("DashboardUI - Kaustav Saha 104");
+        this.setLocation(100,100);
         upB.setBackground(new Color(252,208,92));
         JButton [] btns = { HomeB,HomeB1,HomeB2,HomeB3,HomeB4};
         for (JButton btn : btns){
@@ -105,6 +107,11 @@ public class DashboardUI extends javax.swing.JFrame {
         HomeB2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shop.png"))); // NOI18N
         HomeB2.setBorder(null);
         HomeB2.setPreferredSize(new java.awt.Dimension(90, 90));
+        HomeB2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeB2MouseClicked(evt);
+            }
+        });
 
         HomeB3.setBackground(new java.awt.Color(7, 95, 99));
         HomeB3.setForeground(new java.awt.Color(7, 95, 99));
@@ -131,10 +138,11 @@ public class DashboardUI extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(optionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(HomeB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeB1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeB4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeB3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeB2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(optionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(HomeB1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(HomeB4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(HomeB3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(HomeB2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         optionsLayout.setVerticalGroup(
@@ -150,7 +158,7 @@ public class DashboardUI extends javax.swing.JFrame {
                 .addComponent(HomeB3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(HomeB4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 50)); // NOI18N
@@ -206,7 +214,7 @@ public class DashboardUI extends javax.swing.JFrame {
             .addGroup(BaseUILayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(BaseUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,6 +261,12 @@ public class DashboardUI extends javax.swing.JFrame {
         uploadUI ob = new uploadUI();
         ob.setVisible(true);
     }//GEN-LAST:event_upBMouseClicked
+
+    private void HomeB2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeB2MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        new EStoreUI().setVisible(true);
+    }//GEN-LAST:event_HomeB2MouseClicked
 
     /**
      * @param args the command line arguments

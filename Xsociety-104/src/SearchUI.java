@@ -21,6 +21,8 @@ public class SearchUI extends javax.swing.JFrame {
      */
     public SearchUI() {
         initComponents();
+        this.setLocation(100,100);
+        this.setTitle("EStoreUI - Kaustav Saha 104");
         JButton [] btns = { HomeB5,HomeB6,HomeB7,HomeB8,HomeB9};
         for (JButton btn : btns){
             btn.setBackground(new Color(7,95,99));
@@ -114,6 +116,11 @@ public class SearchUI extends javax.swing.JFrame {
         HomeB7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shop.png"))); // NOI18N
         HomeB7.setBorder(null);
         HomeB7.setPreferredSize(new java.awt.Dimension(90, 90));
+        HomeB7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeB7MouseClicked(evt);
+            }
+        });
 
         HomeB8.setBackground(new java.awt.Color(7, 95, 99));
         HomeB8.setForeground(new java.awt.Color(7, 95, 99));
@@ -314,7 +321,11 @@ public class SearchUI extends javax.swing.JFrame {
         DashboardUI ob = new DashboardUI();
         ob.main(null);
     }                                   
-
+    private void HomeB7MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        // TODO add your handling code here:
+        this.dispose();
+        new EStoreUI().setVisible(true);
+    }     
     /**
      * @param args the command line arguments
      */

@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -26,6 +28,8 @@ public class uploadUI extends javax.swing.JFrame {
      */
     public uploadUI() {
         initComponents();
+        this.setLocation(100,100);
+        this.setTitle("uploadUI - Deep Roy 117");
         JButton [] btns = { HomeB5,HomeB6,HomeB7,HomeB8,HomeB9};
         for (JButton btn : btns){
             btn.setBackground(new Color(7,95,99));
@@ -89,6 +93,8 @@ public class uploadUI extends javax.swing.JFrame {
         pathTF = new javax.swing.JTextField();
         fileChb = new javax.swing.JButton();
         uploadB = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         options.setBackground(new java.awt.Color(7, 95, 99));
 
@@ -164,7 +170,6 @@ public class uploadUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel1.setBackground(new java.awt.Color(250, 208, 90));
 
@@ -250,6 +255,11 @@ public class uploadUI extends javax.swing.JFrame {
 
         nameTF.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         nameTF.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        nameTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nameTFKeyReleased(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 28)); // NOI18N
         jLabel2.setText("Name:");
@@ -266,6 +276,11 @@ public class uploadUI extends javax.swing.JFrame {
 
         authorTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         authorTF.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        authorTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                authorTFKeyReleased(evt);
+            }
+        });
 
         pathTF.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
@@ -287,6 +302,12 @@ public class uploadUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 2, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 51, 51));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 2, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 102, 102));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -306,17 +327,20 @@ public class uploadUI extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(fileChb, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nameTF)
-                                    .addComponent(jComboBox1, 0, 463, Short.MAX_VALUE)
-                                    .addComponent(authorTF)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(pathTF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(uploadB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(uploadB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(nameTF)
+                                        .addComponent(jComboBox1, 0, 463, Short.MAX_VALUE)
+                                        .addComponent(authorTF))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(96, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -329,7 +353,9 @@ public class uploadUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -337,7 +363,9 @@ public class uploadUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(authorTF))
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pathTF, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fileChb, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -414,6 +442,32 @@ public class uploadUI extends javax.swing.JFrame {
         pathTF.setText(filename);
     }//GEN-LAST:event_fileChbActionPerformed
 
+    private void nameTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTFKeyReleased
+        // TODO add your handling code here:
+        String patt="^[a-zA-Z ]{5,30}$";
+        Pattern p = Pattern.compile(patt);
+        Matcher m=p.matcher(nameTF.getText());
+        if(!m.matches()){
+            jLabel5.setText("Invalid name!");
+        }
+        else{
+            jLabel5.setText(null);
+        }
+    }//GEN-LAST:event_nameTFKeyReleased
+
+    private void authorTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_authorTFKeyReleased
+        // TODO add your handling code here:
+        String patt1="^[a-zA-Z ]{5,30}$";
+        Pattern p1 = Pattern.compile(patt1);
+        Matcher m=p1.matcher(authorTF.getText());
+        if(!m.matches()){
+            jLabel6.setText("Invalid author name!");
+        }
+        else{
+            jLabel6.setText(null);
+        } 
+    }//GEN-LAST:event_authorTFKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -467,6 +521,8 @@ public class uploadUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTF;
     private javax.swing.JPanel options;
