@@ -19,7 +19,7 @@ import javax.swing.plaf.basic.BasicButtonUI;
  */
 /**
  *
- * @author Kaustav
+ * @author Deep Roy
  */
 public class uploadUI extends javax.swing.JFrame {
 
