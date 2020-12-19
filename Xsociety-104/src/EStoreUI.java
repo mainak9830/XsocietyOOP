@@ -85,9 +85,11 @@ public class EStoreUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        sellEq = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel1.setBackground(new java.awt.Color(250, 208, 90));
 
@@ -268,14 +270,37 @@ public class EStoreUI extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(204, 0, 153));
         jLabel4.setText("UNDER CONSTRUCTION!");
 
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 26)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 153));
+        jLabel5.setText("ONLINE BUYING SECTION");
+
+        jLabel6.setFont(new java.awt.Font("Calibri Light", 2, 15)); // NOI18N
+        jLabel6.setText("Contact Admin's Corner in Library for buying...");
+
+        sellEq.setText("SELL EQUIPMENT");
+        sellEq.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sellEq.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sellEqMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(sellEq, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -286,8 +311,14 @@ public class EStoreUI extends javax.swing.JFrame {
                 .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(171, 171, 171)
+                .addGap(128, 128, 128)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(45, 45, 45)
+                .addComponent(sellEq, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -371,6 +402,12 @@ public class EStoreUI extends javax.swing.JFrame {
         this.dispose();
         new DashboardUI().setVisible(true);
     }//GEN-LAST:event_HomeBMouseClicked
+
+    private void sellEqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sellEqMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        new uploadEquipment().setVisible(true);
+    }//GEN-LAST:event_sellEqMouseClicked
     private boolean NameCheck(String p){
         return Pattern.matches("[a-zA-Z][a-zA-Z ]*",p);
     }
@@ -423,6 +460,8 @@ public class EStoreUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -431,5 +470,6 @@ public class EStoreUI extends javax.swing.JFrame {
     private javax.swing.JTextField nameTF;
     private javax.swing.JPanel options;
     private javax.swing.JButton searchBtn;
+    private javax.swing.JButton sellEq;
     // End of variables declaration//GEN-END:variables
 }

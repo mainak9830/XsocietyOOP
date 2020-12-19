@@ -5,3 +5,4 @@ Team members:
 1. Kaustav Saha [Team Lead]
 2. Mainak Adak
 3. Deep Roy
+4. Maitri Roy
