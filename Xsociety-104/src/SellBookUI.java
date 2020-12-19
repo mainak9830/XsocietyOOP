@@ -25,6 +25,8 @@ public class SellBookUI extends javax.swing.JFrame {
      */
     public SellBookUI() {
         initComponents();
+        this.setTitle("SellBookUI - Mainak Adak 97");
+        this.setLocation(100,100);
         JButton [] btns = { HomeB,HomeB1,HomeB2,HomeB3,HomeB4};
         for (JButton btn : btns){
             btn.setBackground(new Color(7,95,99));
@@ -100,6 +102,11 @@ public class SellBookUI extends javax.swing.JFrame {
         HomeB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/open-menu.png"))); // NOI18N
         HomeB.setBorder(null);
         HomeB.setPreferredSize(new java.awt.Dimension(50, 50));
+        HomeB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void MouseClicked(java.awt.event.MouseEvent evt) {
+                HomeBMouseClicked(evt);
+            }           
+        });
 
         HomeB1.setBackground(new java.awt.Color(7, 95, 99));
         HomeB1.setForeground(new java.awt.Color(7, 95, 99));
@@ -424,7 +431,13 @@ public class SellBookUI extends javax.swing.JFrame {
         jTextField3.setText(""); 
         }
     }//GEN-LAST:event_jTextField3MouseClicked
-
+    
+    private void HomeBMouseClicked(java.awt.event.MouseEvent evt) {                                   
+        // TODO add your handling code here:
+        this.dispose();
+        new DashboardUI().setVisible(true);
+    }    
+    
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
         String text=jTextField1.getText();
         if(!checkPrice(text)){
